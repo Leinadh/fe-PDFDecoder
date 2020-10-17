@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -19,7 +19,6 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,33 +52,30 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Card >
-      <CardHeader
-        title="Empresa"
-      />
+    <Card>
+      <CardHeader title="Empresa" />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          This impressive paella is a perfect party dish and a fun meal to cook
+          together with your guests. Add 1 cup of frozen peas along with the
+          mussels, if you like.
         </Typography>
       </CardContent>
-     
+
       <Grid container direction="row" justify="flex-end" alignItems="center">
-    
         <CardActions disableSpacing>
           <Grid item xs={10}>
-              <Button variant="outlined" color="primary">
-                  Ver Reporte
-              </Button>
+            <Button variant="outlined" color="primary">
+              Ver Reporte
+            </Button>
           </Grid>
           <Grid item xs={3}>
-              <IconButton aria-label="Descargar">
+            <IconButton aria-label="Descargar">
               <ArrowDownwardIcon fontSize="inherit" />
-              </IconButton>
+            </IconButton>
           </Grid>
         </CardActions>
-  
       </Grid>
     </Card>
   );
- }
+}

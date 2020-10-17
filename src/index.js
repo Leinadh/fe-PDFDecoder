@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/index.css';
-import App from './App';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import * as serviceWorker from './serviceWorker';
-import SecondView from './components/SecondView';
-import ThirdView from './components/ThirdView';
-import ShowPDF from './components/ShowPDF';
+import Controller from './components/Controller';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ShowPDF/>
+    {/* <ShowPDF/> */}
+    <Grid
+      container
+      direction="row"
+      justify="flex-start"
+      alignItems="center"
+      style={{ marginLeft: 40 }}
+    >
+      <IconButton aria-label="PDF">
+        <PictureAsPdfIcon style={{ fontSize: 90 }} />
+      </IconButton>
+      <h1>Decoder</h1>
+    </Grid>
+    <Controller />
   </React.StrictMode>,
   document.getElementById('root')
 );
