@@ -4,10 +4,12 @@ import './assets/css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import SecondView from './components/SecondView';
+import ThirdView from './components/ThirdView';
+import ShowPDF from './components/ShowPDF';
 
 ReactDOM.render(
   <React.StrictMode>
-    <SecondView />
+    <ShowPDF/>
   </React.StrictMode>,
   document.getElementById('root')
 );

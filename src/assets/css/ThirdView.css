@@ -1,0 +1,7 @@
+.container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    width: 50%;
+    margin-left: 10px;
+  }
+

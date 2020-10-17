@@ -64,22 +64,22 @@ export default function RecipeReviewCard() {
         </Typography>
       </CardContent>
      
-    <Grid container direction="row" justify="flex-end" alignItems="center">
+      <Grid container direction="row" justify="flex-end" alignItems="center">
     
-      <CardActions disableSpacing>
-        <Grid item xs={10}>
-            <Button variant="contained" color="primary">
-                Ver Reporte
-            </Button>
-        </Grid>
-        <Grid item xs={3}>
-            <IconButton aria-label="Descargar">
-            <ArrowDownwardIcon fontSize="inherit" />
-            </IconButton>
-        </Grid>
-      </CardActions>
-    
-    </Grid>
+        <CardActions disableSpacing>
+          <Grid item xs={10}>
+              <Button variant="outlined" color="primary">
+                  Ver Reporte
+              </Button>
+          </Grid>
+          <Grid item xs={3}>
+              <IconButton aria-label="Descargar">
+              <ArrowDownwardIcon fontSize="inherit" />
+              </IconButton>
+          </Grid>
+        </CardActions>
+  
+      </Grid>
     </Card>
   );
  }
