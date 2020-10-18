@@ -9,6 +9,7 @@ export default function Controller() {
   const [comp, setComp] = useState('upload');
   const [docsResult, setDocsResult] = useState([]);
   const [docSelected, setDocSelected] = useState(null);
+  const [pdfs, setPdfs] = useState(null);
 
   useEffect(() => {
     // render comp
@@ -18,7 +19,11 @@ export default function Controller() {
   return (
     <div>
       {comp === 'upload' && (
-        <App changeView={setComp} setDocsResult={setDocsResult} />
+        <App
+          changeView={setComp}
+          setDocsResult={setDocsResult}
+          setPdfs={setPdfs}
+        />
       )}
       {comp === 'result' && (
         <SecondView
@@ -33,6 +38,7 @@ export default function Controller() {
           docsResult={docsResult}
           setDocsResult={setDocsResult}
           docSelected={docSelected}
+          pdfs={pdfs}
         />
       )}
     </div>

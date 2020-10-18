@@ -8,7 +8,9 @@ import samplePDF from './aaaa.pdf';
 
 import '../assets/css/ShowPDF.css';
 
-export default function ShowPDF() {
+export default function ShowPDF(props) {
+  const { origPdf } = props;
+  console.log('OPDF:: ', origPdf);
   return (
     <div className="Document">
       <h4>Documento PDF</h4>

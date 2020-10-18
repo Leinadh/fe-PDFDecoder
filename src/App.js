@@ -8,8 +8,10 @@ import Grid from '@material-ui/core/Grid';
 // import { mock_response_completo, mock_response } from './components/mock';
 
 const MyUploader = (props) => {
+  const { changeView, setDocsResult, setPdfs } = props;
   // specify upload params and url for your files
   const getUploadParams = ({ file, meta }) => {
+    setPdfs([file]);
     // online
     const body = new FormData();
     body.append('files[]', file);
@@ -24,8 +26,6 @@ const MyUploader = (props) => {
     // offline
     // return { url: 'https://httpbin.org/post' };
   };
-
-  const { changeView, setDocsResult } = props;
 
   // called every time a file's `status` changes
   const handleChangeStatus = ({ meta, file }, status) => {
@@ -65,9 +65,10 @@ const MyUploader = (props) => {
       //   return mock;
       // })
     );
+    // setPdfs(allFiles);
     changeView('result');
 
-    allFiles.forEach((f) => f.remove());
+    // allFiles.forEach((f) => f.remove());
   };
 
   return (
@@ -78,14 +79,14 @@ const MyUploader = (props) => {
       onChangeStatus={handleChangeStatus}
       onSubmit={handleSubmit}
       accept=".pdf,image/*"
-      submitButtonContent={"SIGUIENTE"}
-      inputWithFilesContent={"AGREGAR ARCHIVOS"}
+      submitButtonContent={'SIGUIENTE'}
+      inputWithFilesContent={'AGREGAR ARCHIVOS'}
     />
   );
 };
 
 function App(props) {
-  const { changeView, setDocsResult } = props;
+  const { changeView, setDocsResult, setPdfs } = props;
   return (
     <div>
       <div class="container">
@@ -93,7 +94,11 @@ function App(props) {
           <h1>Cargue los archivos</h1>
           <br></br>
           <br></br>
-          <MyUploader changeView={changeView} setDocsResult={setDocsResult} />
+          <MyUploader
+            changeView={changeView}
+            setDocsResult={setDocsResult}
+            setPdfs={setPdfs}
+          />
         </Grid>
       </div>
     </div>

@@ -53,6 +53,14 @@ export default function BasicTable(props) {
   const classes = useStyles();
   const { docInfo, updateDocInfo, changeView } = props;
   // const docInfo = { ...docInfo };
+  const iniDetail = [
+    { variableName: 'DOCUMENTO', value: docInfo['DOCUMENTO'] },
+    { variableName: 'FECHA', value: docInfo['FECHA'] },
+    {
+      variableName: 'UNIDADES DE MEDIDA',
+      value: docInfo['UNIDADES DE MEDIDA'],
+    },
+  ];
   const iniRowsBG = [
     { variableName: 'CAJA Y BANCOS', value: docInfo['CAJA Y BANCOS'] },
     { variableName: 'TOTAL ACTIVO', value: docInfo['TOTAL ACTIVO'] },
@@ -77,6 +85,7 @@ export default function BasicTable(props) {
     { variableName: 'UTILIDAD NETA', value: docInfo['UTILIDAD NETA'] },
   ];
 
+  const [rowsDetail, setRowsDetail] = useState(iniDetail);
   const [rowsBG, setRowsBG] = useState(iniRowsBG);
   const [rowsEGP, setRowsEGP] = useState(iniRowsEGP);
   const [saved, setSaved] = useState(true);
@@ -106,6 +115,9 @@ export default function BasicTable(props) {
     rowsEGP.forEach((e) => {
       newDocInfo[e.variableName] = e.value;
     });
+    rowsDetail.forEach((e) => {
+      newDocInfo[e.variableName] = e.value;
+    });
     newDocInfo = { ...docInfo, ...newDocInfo };
     // console.log('Before:: ', docInfo);
     // console.log('After:: ', newDocInfo);
@@ -117,6 +129,31 @@ export default function BasicTable(props) {
     <div>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>INFORMACIÓN PRINCIPAL</StyledTableCell>
+              <StyledTableCell>VALORES</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rowsDetail &&
+              rowsDetail.map((row) => (
+                <TableRow key={row.variableName}>
+                  <TableCell component="th" scope="row">
+                    {row.variableName}
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="standard-basic"
+                      value={row.value}
+                      onChange={(e) =>
+                        changeDataValue(e, row, setRowsDetail, rowsDetail)
+                      }
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
           <TableHead>
             <TableRow>
               <StyledTableCell>BALANCE GENERAL</StyledTableCell>
@@ -177,7 +214,10 @@ export default function BasicTable(props) {
         justify="space-between"
         alignItems="center"
       >
-        <Button variant="contained" color="primary" component="span"
+        <Button
+          variant="contained"
+          color="primary"
+          component="span"
           onClick={() => {
             saveNewDocInfo();
           }}
@@ -185,16 +225,20 @@ export default function BasicTable(props) {
           Guardar
         </Button>
         {saved ? (
-          <CsvDownload style={{ //pass other props, like styles
-            borderRadius:"4px",
-            display: "flex",
-            width: "auto",
-            fontSize:"0.875rem",
-            padding:"6px 16px",
-            lineHeight: "1.75",
-            boxShadow:"none",
+          <CsvDownload
+            style={{
+              //pass other props, like styles
+              borderRadius: '4px',
+              display: 'flex',
+              width: 'auto',
+              fontSize: '0.875rem',
+              padding: '6px 16px',
+              lineHeight: '1.75',
+              boxShadow: 'none',
             }}
-            data={[docInfo]} filename={docInfo.file_name + '.csv'}>
+            data={[docInfo]}
+            filename={docInfo.file_name + '.csv'}
+          >
             DESCARGAR
           </CsvDownload>
         ) : (
@@ -202,7 +246,10 @@ export default function BasicTable(props) {
             Guarde sus cambios para habilitar la descarga
           </Typography>
         )}
-        <Button variant="contained" color="primary" component="span"
+        <Button
+          variant="contained"
+          color="primary"
+          component="span"
           onClick={() => {
             changeView('result');
           }}
@@ -210,8 +257,6 @@ export default function BasicTable(props) {
           Regresar
         </Button>
       </Grid>
-      
-      
     </div>
   );
 }

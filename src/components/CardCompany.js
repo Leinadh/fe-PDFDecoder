@@ -19,6 +19,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import CsvDownload from 'react-json-to-csv';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,9 +52,18 @@ export default function RecipeReviewCard(props) {
   // console.log('docInfo:: ', docInfo);
   return (
     <Card style={{ marginTop: 30, marginBottom: 30 }} variant="outlined">
-      <Grid container direction="row" justify="space-around" alignItems="center">
-        <CardHeader title={docInfo['file_name']} />
-        <CardActions >
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        alignItems="center"
+      >
+        <CardHeader
+          title={
+            docInfo['DOCUMENTO'] ? docInfo['DOCUMENTO'] : docInfo['file_name']
+          }
+        />
+        <CardActions>
           <Grid item xs={8}>
             <Button
               variant="outlined"
@@ -69,9 +79,25 @@ export default function RecipeReviewCard(props) {
             </Button>
           </Grid>
           <Grid item xs={3}>
-            <IconButton aria-label="Descargar">
+            {/* <IconButton aria-label="Descargar">
               <ArrowDownwardIcon fontSize="inherit" />
-            </IconButton>
+            </IconButton> */}
+            <CsvDownload
+              style={{
+                //pass other props, like styles
+                borderRadius: '4px',
+                display: 'flex',
+                width: 'auto',
+                fontSize: '0.875rem',
+                padding: '6px 16px',
+                lineHeight: '1.75',
+                boxShadow: 'none',
+              }}
+              data={[docInfo]}
+              filename={docInfo.file_name + '.csv'}
+            >
+              DESCARGAR
+            </CsvDownload>
           </Grid>
         </CardActions>
       </Grid>
