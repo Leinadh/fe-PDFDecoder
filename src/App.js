@@ -5,24 +5,24 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import Dropzone from 'react-dropzone-uploader';
 import Grid from '@material-ui/core/Grid';
-import { mock_response_completo, mock_response } from './components/mock';
+// import { mock_response_completo, mock_response } from './components/mock';
 
 const MyUploader = (props) => {
   // specify upload params and url for your files
   const getUploadParams = ({ file, meta }) => {
     // online
-    // const body = new FormData();
-    // body.append('files[]', file);
-    // // const url =
-    // //   'http://ec2-107-20-114-191.compute-1.amazonaws.com:80/process-documents';
+    const body = new FormData();
+    body.append('files[]', file);
+    const url =
+      'http://ec2-107-20-114-191.compute-1.amazonaws.com:80/process-documents';
     // const url = 'http://localhost:80/process-documents';
-    // return {
-    //   url,
-    //   body,
-    // };
+    return {
+      url,
+      body,
+    };
 
     // offline
-    return { url: 'https://httpbin.org/post' };
+    // return { url: 'https://httpbin.org/post' };
   };
 
   const { changeView, setDocsResult } = props;
@@ -40,29 +40,30 @@ const MyUploader = (props) => {
     // );
 
     // online
-    // const apiResponse = files.map((f) => JSON.parse(f.xhr.response));
+    const apiResponse = files.map((f) => JSON.parse(f.xhr.response));
     // offline
-    const apiResponse = [{}, {}];
+    // const apiResponse = [{}, {}];
     // setDocsResult(apiResponse);
 
-    const completeResponse = (response) => {
-      //mock_response_completo;
-    };
+    // const completeResponse = (response) => {
+    //   //mock_response_completo;
+    // };
 
     setDocsResult(
-      // apiResponse.map((e) => {
-      //   const file_name = e.responses_docs[0].file_name;
-      //   const mock = { ...mock_response_completo, file_name };
-
-      //   return mock;
-      // })
-
-      // offline
       apiResponse.map((e) => {
-        const mock = { ...mock_response_completo, file_name: 'gaa.png' };
+        const file_name = e.responses_docs[0].file_name;
+        const response = e.responses_docs[0];
+        const mock = { ...response, file_name };
 
         return mock;
       })
+
+      // offline
+      // apiResponse.map((e) => {
+      //   const mock = { ...mock_response_completo, file_name: 'gaa.png' };
+
+      //   return mock;
+      // })
     );
     changeView('result');
 

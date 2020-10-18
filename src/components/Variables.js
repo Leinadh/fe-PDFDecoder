@@ -28,9 +28,9 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(variableName, value) {
-  return { variableName, value };
-}
+// function createData(variableName, value) {
+//   return { variableName, value };
+// }
 
 // const rowsBG = [
 // createData('Caja y efectivo', 159),
@@ -89,7 +89,7 @@ export default function BasicTable(props) {
       newValue = e.target.value;
     }
     changed.forEach((e) => {
-      if (e.variableName == row.variableName) {
+      if (e.variableName === row.variableName) {
         e.value = newValue;
         setSaved(false);
       }

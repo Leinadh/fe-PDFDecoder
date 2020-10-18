@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SecondView from './SecondView';
 import ThirdView from './ThirdView';
-import ShowPDF from './ShowPDF';
+// import ShowPDF from './ShowPDF';
 import App from '../App';
 
 export default function Controller() {

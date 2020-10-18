@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../assets/css/SecondView.css';
 
 import CardCompany from './CardCompany';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import CsvDownload from 'react-json-to-csv';
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../assets/css/ThirdView.css';
 import Grid from '@material-ui/core/Grid';
 import Variables from './Variables';

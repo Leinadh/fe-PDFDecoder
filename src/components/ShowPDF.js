@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import SinglePagePDFViewer from "./pdf/single-page";
-import AllPagesPDFViewer from "./pdf/all-pages";
+// import SinglePagePDFViewer from "./pdf/single-page";
+import AllPagesPDFViewer from './pdf/all-pages';
 /* This is required only if the project file is located 
 inside the app. Otherwise you can use the external link of the pdf file*/
-import samplePDF from "./aaaa.pdf";
+import samplePDF from './aaaa.pdf';
 
-import "../assets/css/ShowPDF.css";
-
+import '../assets/css/ShowPDF.css';
 
 export default function ShowPDF() {
   return (
@@ -18,8 +17,6 @@ export default function ShowPDF() {
       </div>
 
       <hr />
-
-
     </div>
   );
 }
