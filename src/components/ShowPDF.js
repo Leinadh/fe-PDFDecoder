@@ -1,41 +1,25 @@
-import React, { Component } from "react";
-import { Document, Page } from "react-pdf";
+import React from "react";
 
-export default class ShowPDF extends Component {
-  state = { numPages: null, pageNumber: 1 };
+import SinglePagePDFViewer from "./pdf/single-page";
+import AllPagesPDFViewer from "./pdf/all-pages";
+/* This is required only if the project file is located 
+inside the app. Otherwise you can use the external link of the pdf file*/
+import samplePDF from "./aaaa.pdf";
 
-  onDocumentLoadSuccess = ({ numPages }) => {
-    this.setState({ numPages });
-  };
+import "../assets/css/ShowPDF.css";
 
-  goToPrevPage = () =>
-    this.setState(state => ({ pageNumber: state.pageNumber - 1 }));
-  goToNextPage = () =>
-    this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
 
-  render() {
-    const { pageNumber, numPages } = this.state;
-
-    return (
-      <div>
-        <nav>
-          <button onClick={this.goToPrevPage}>Prev</button>
-          <button onClick={this.goToNextPage}>Next</button>
-        </nav>
-
-        <div style={{ width: 600 }}>
-          <Document
-            file="/example.pdf"
-            onLoadSuccess={this.onDocumentLoadSuccess}
-          >
-            <Page pageNumber={pageNumber} width={600} />
-          </Document>
-        </div>
-
-        <p>
-          Page {pageNumber} of {numPages}
-        </p>
+export default function ShowPDF() {
+  return (
+    <div className="Document">
+      <h4>Documento PDF</h4>
+      <div className="all-page-container">
+        <AllPagesPDFViewer pdf={samplePDF} />
       </div>
-    );
-  }
+
+      <hr />
+
+
+    </div>
+  );
 }

@@ -54,7 +54,7 @@ const useStyles = makeStyles({
           <TableHead>
             <TableRow>
               <StyledTableCell>Balance General</StyledTableCell>
-              <StyledTableCell>Calories</StyledTableCell>
+              <StyledTableCell>Valores</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,7 +70,7 @@ const useStyles = makeStyles({
           <TableHead>
             <TableRow>
               <StyledTableCell>Estado de ganancias y pérdidas</StyledTableCell>
-              <StyledTableCell>Calories</StyledTableCell>
+              <StyledTableCell>Valores</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

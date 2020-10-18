@@ -6,6 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import * as serviceWorker from './serviceWorker';
 import Controller from './components/Controller';
+import SecondView from './components/SecondView';
+import ThirdView from './components/ThirdView';
+import ShowPDF from './components/ShowPDF';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,7 +25,7 @@ ReactDOM.render(
       </IconButton>
       <h1>Decoder</h1>
     </Grid>
-    <Controller />
+    <Controller/>
   </React.StrictMode>,
   document.getElementById('root')
 );
