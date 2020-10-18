@@ -1,7 +1,4 @@
-.container,
-  .navbar-fixed-top .container,
-  .navbar-fixed-bottom .container {
+.container-table {
     width: 50%;
-    margin-left: 10px;
-  }
-
+    margin-left: 15px;
+}

@@ -3,12 +3,19 @@ import '../assets/css/ThirdView.css';
 import Grid from '@material-ui/core/Grid';
 import Variables from './Variables';
 import Paper from '@material-ui/core/Paper';
+import ShowPDF from './ShowPDF';
 
 class ThirdView extends Component {
   render() {
     return (
       <div>
-        <div class="container">
+        <Grid
+              container
+              direction="row"
+              justify="space-evenly"
+              alignItems="flex-start"
+        >
+        <div class="container-table">
           <Paper elevation={3}>
             <Grid
               container
@@ -31,6 +38,10 @@ class ThirdView extends Component {
           <br></br>
           <Variables />
         </div>
+        <div>
+          <ShowPDF/>
+        </div>
+        </Grid>
       </div>
     );
   }
