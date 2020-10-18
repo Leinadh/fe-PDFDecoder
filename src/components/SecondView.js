@@ -4,6 +4,7 @@ import '../assets/css/SecondView.css';
 import CardCompany from './CardCompany';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import CsvDownload from 'react-json-to-csv';
 
 function SecondView(props) {
   const { docsResult, setDocSelected, changeView } = props;
@@ -21,9 +22,7 @@ function SecondView(props) {
         ))}
         <Grid container direction="row" justify="flex-end" alignItems="center">
           <Grid item xs={2}>
-            <Button variant="contained" color="primary">
-              Descargar todos
-            </Button>
+            <CsvDownload data={docsResult}>Descargar todos</CsvDownload>
           </Grid>
         </Grid>
       </div>
