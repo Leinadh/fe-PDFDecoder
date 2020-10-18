@@ -20,10 +20,30 @@ function SecondView(props) {
             changeView={changeView}
           />
         ))}
-        <Grid container direction="row" justify="flex-end" alignItems="center">
-          <Grid item xs={2}>
-            <CsvDownload data={docsResult}>Descargar todos</CsvDownload>
-          </Grid>
+        <Grid container
+              direction="row" 
+              justify="space-around"
+              alignItems="center"
+        >
+              <Button variant="contained" color="primary" component="span"
+                  onClick={() => {
+                    changeView('upload');
+                  }}
+              >
+                REGRESAR
+              </Button>
+              <CsvDownload  style={{ //pass other props, like styles
+                borderRadius:"4px",
+                display: "flex",
+                width: "auto",
+                fontSize:"0.875rem",
+                padding:"6px 16px",
+                lineHeight: "1.75",
+                boxShadow:"none",
+                }}
+                data={docsResult}>
+                DESCARGAR TODOS
+              </CsvDownload>
         </Grid>
       </div>
     </div>

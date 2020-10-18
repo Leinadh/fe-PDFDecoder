@@ -9,6 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 import { Button, Typography } from '@material-ui/core';
 import CsvDownload from 'react-json-to-csv';
 
@@ -118,8 +119,8 @@ export default function BasicTable(props) {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Balance General</StyledTableCell>
-              <StyledTableCell>Valores</StyledTableCell>
+              <StyledTableCell>BALANCE GENERAL</StyledTableCell>
+              <StyledTableCell>VALORES</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -143,8 +144,8 @@ export default function BasicTable(props) {
           </TableBody>
           <TableHead>
             <TableRow>
-              <StyledTableCell>Estado de ganancias y pérdidas</StyledTableCell>
-              <StyledTableCell>Valores</StyledTableCell>
+              <StyledTableCell>ESTADO DE GANANCIAS Y PÉRDIDAS</StyledTableCell>
+              <StyledTableCell>VALORES</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -169,29 +170,48 @@ export default function BasicTable(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button
-        onClick={() => {
-          saveNewDocInfo();
-        }}
+      <br></br>
+      <Grid
+        container
+        direction="row-reverse"
+        justify="space-between"
+        alignItems="center"
       >
-        Guardar
-      </Button>
-      <Button
-        onClick={() => {
-          changeView('result');
-        }}
-      >
-        Regresar
-      </Button>
-      {saved ? (
-        <CsvDownload data={[docInfo]} filename={docInfo.file_name + '.csv'}>
-          Descargar
-        </CsvDownload>
-      ) : (
-        <Typography color="error">
-          Guarda tus cambios para habilitar la descarga
-        </Typography>
-      )}
+        <Button variant="contained" color="primary" component="span"
+          onClick={() => {
+            saveNewDocInfo();
+          }}
+        >
+          Guardar
+        </Button>
+        {saved ? (
+          <CsvDownload style={{ //pass other props, like styles
+            borderRadius:"4px",
+            display: "flex",
+            width: "auto",
+            fontSize:"0.875rem",
+            padding:"6px 16px",
+            lineHeight: "1.75",
+            boxShadow:"none",
+            }}
+            data={[docInfo]} filename={docInfo.file_name + '.csv'}>
+            DESCARGAR
+          </CsvDownload>
+        ) : (
+          <Typography color="error">
+            Guarde sus cambios para habilitar la descarga
+          </Typography>
+        )}
+        <Button variant="contained" color="primary" component="span"
+          onClick={() => {
+            changeView('result');
+          }}
+        >
+          Regresar
+        </Button>
+      </Grid>
+      
+      
     </div>
   );
 }

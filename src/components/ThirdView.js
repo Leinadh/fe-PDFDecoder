@@ -44,7 +44,7 @@ function ThirdView(props) {
               alignItems="center"
             >
               <h5>Fecha: {docInfo['FECHA']}</h5>
-              <h5>Unidades de medida: Soles</h5>
+              <h5>Unidades de medida: {docInfo['UNIDADES DE MEDIDA']}</h5>
             </Grid>
           </Paper>
           <br></br>
@@ -53,6 +53,7 @@ function ThirdView(props) {
             updateDocInfo={updateDocInfo}
             changeView={changeView}
           />
+          <br></br>
         </div>
         <div>
           <ShowPDF />
