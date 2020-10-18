@@ -12,9 +12,9 @@ const MyUploader = (props) => {
   const getUploadParams = ({ file, meta }) => {
     const body = new FormData();
     body.append('files[]', file);
-    const url =
-      'http://ec2-107-20-114-191.compute-1.amazonaws.com:80/process-documents';
-    //const url = 'http://localhost:80/process-documents';
+    // const url =
+    //   'http://ec2-107-20-114-191.compute-1.amazonaws.com:80/process-documents';
+    const url = 'http://localhost:80/process-documents';
     return {
       url,
       body,
@@ -44,7 +44,7 @@ const MyUploader = (props) => {
     setDocsResult(
       apiResponse.map((e) => {
         const file_name = e.responses_docs[0].file_name;
-        const mock = { ...mock_response, file_name };
+        const mock = { ...mock_response_completo, file_name };
 
         return mock;
       })

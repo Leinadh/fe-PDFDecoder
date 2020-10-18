@@ -31,6 +31,7 @@ export default function Controller() {
         <ThirdView
           changeView={setComp}
           docsResult={docsResult}
+          setDocsResult={setDocsResult}
           docSelected={docSelected}
         />
       )}
