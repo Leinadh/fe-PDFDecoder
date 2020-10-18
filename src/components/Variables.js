@@ -79,7 +79,7 @@ export default function BasicTable(props) {
   const [rowsEGP, setRowsEGP] = useState(iniRowsEGP);
 
   const changeDataValue = (e, row, setter, orig) => {
-    console.log('change::', e.target.value);
+    // console.log('change::', e.target.value);
     const changed = [...orig];
     const newValue = e.target.value;
     changed.forEach((e) => {
