@@ -38,9 +38,6 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
 }));
 
 export default function RecipeReviewCard(props) {
@@ -53,29 +50,22 @@ export default function RecipeReviewCard(props) {
   const { docInfo, setDocSelected, ind, changeView } = props;
   // console.log('docInfo:: ', docInfo);
   return (
-    <Card style={{ marginTop: 30, marginBottom: 30 }}>
-      <CardHeader title={docInfo['file_name']} />
-      <CardContent>
-        <Typography
-          variant="body2"
-          color="textSecondary"
-          component="p"
-        ></Typography>
-      </CardContent>
-
-      <Grid container direction="row" justify="flex-end" alignItems="center">
-        <CardActions disableSpacing>
-          <Grid item xs={10}>
+    <Card style={{ marginTop: 30, marginBottom: 30 }} variant="outlined">
+      <Grid container direction="row" justify="space-around" alignItems="center">
+        <CardHeader title={docInfo['file_name']} />
+        <CardActions >
+          <Grid item xs={8}>
             <Button
               variant="outlined"
               color="primary"
+              component="span"
               onClick={() => {
                 setDocSelected(ind);
                 // console.log('ind:: ', ind);
                 changeView('detail');
               }}
             >
-              Ver Reporte
+              VER REPORTE
             </Button>
           </Grid>
           <Grid item xs={3}>

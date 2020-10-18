@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -110,8 +111,8 @@ export default function BasicTable(props) {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Balance General</StyledTableCell>
-              <StyledTableCell>Valores</StyledTableCell>
+              <StyledTableCell>BALANCE GENERAL</StyledTableCell>
+              <StyledTableCell>VALORES</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -135,8 +136,8 @@ export default function BasicTable(props) {
           </TableBody>
           <TableHead>
             <TableRow>
-              <StyledTableCell>Estado de ganancias y pérdidas</StyledTableCell>
-              <StyledTableCell>Valores</StyledTableCell>
+              <StyledTableCell>ESTADO DE GANANCIAS Y PÉRDIDAS</StyledTableCell>
+              <StyledTableCell>VALORES</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -161,20 +162,28 @@ export default function BasicTable(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button
-        onClick={() => {
-          saveNewDocInfo();
-        }}
+      <br></br>
+      <Grid
+        container
+        direction="row-reverse"
+        justify="space-between"
+        alignItems="center"
       >
-        Guardar
-      </Button>
-      <Button
-        onClick={() => {
-          changeView('result');
-        }}
-      >
-        Regresar
-      </Button>
+        <Button variant="contained" color="primary" component="span"
+          onClick={() => {
+            saveNewDocInfo();
+          }}
+        >
+          Guardar
+        </Button>
+        <Button variant="contained" color="primary" component="span"
+          onClick={() => {
+            changeView('result');
+          }}
+        >
+          Regresar
+        </Button>
+      </Grid>
     </div>
   );
 }

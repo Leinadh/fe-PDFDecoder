@@ -19,12 +19,21 @@ function SecondView(props) {
             changeView={changeView}
           />
         ))}
-        <Grid container direction="row" justify="flex-end" alignItems="center">
-          <Grid item xs={2}>
-            <Button variant="contained" color="primary">
-              Descargar todos
+        <Grid container
+              direction="row" 
+              justify="space-around"
+              alignItems="center"
+        >
+            <Button variant="contained" color="primary" component="span"
+                onClick={() => {
+                  changeView('upload');
+                }}
+            >
+              REGRESAR
             </Button>
-          </Grid>
+            <Button variant="contained" color="primary" component="span">
+              DESCARGAR TODOS
+            </Button>
         </Grid>
       </div>
     </div>

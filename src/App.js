@@ -77,6 +77,8 @@ const MyUploader = (props) => {
       onChangeStatus={handleChangeStatus}
       onSubmit={handleSubmit}
       accept=".pdf,image/*"
+      submitButtonContent={"SIGUIENTE"}
+      inputWithFilesContent={"AGREGAR ARCHIVOS"}
     />
   );
 };
