@@ -9,6 +9,9 @@ import Controller from './components/Controller';
 import SecondView from './components/SecondView';
 import ThirdView from './components/ThirdView';
 import ShowPDF from './components/ShowPDF';
+import Footer from 'rc-footer';
+import 'rc-footer/assets/index.css'; // import 'rc-footer/asssets/index.less';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,6 +31,8 @@ ReactDOM.render(
     <Controller/>
   </React.StrictMode>,
   document.getElementById('root')
+
+  
 );
 
 // If you want your app to work offline and load faster, you can change

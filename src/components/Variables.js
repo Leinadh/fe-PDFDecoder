@@ -9,8 +9,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import { Button, Typography } from '@material-ui/core';
+import CsvDownload from 'react-json-to-csv';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -78,14 +79,20 @@ export default function BasicTable(props) {
 
   const [rowsBG, setRowsBG] = useState(iniRowsBG);
   const [rowsEGP, setRowsEGP] = useState(iniRowsEGP);
+  const [saved, setSaved] = useState(true);
 
   const changeDataValue = (e, row, setter, orig) => {
     // console.log('change::', e.target.value);
     const changed = [...orig];
-    const newValue = e.target.value;
+    let newValue = Number(e.target.value);
+    if (Number.isNaN(newValue)) {
+      console.log('es NaN');
+      newValue = e.target.value;
+    }
     changed.forEach((e) => {
       if (e.variableName == row.variableName) {
         e.value = newValue;
+        setSaved(false);
       }
     });
     setter(changed);
@@ -103,6 +110,7 @@ export default function BasicTable(props) {
     // console.log('Before:: ', docInfo);
     // console.log('After:: ', newDocInfo);
     updateDocInfo(newDocInfo);
+    setSaved(true);
   };
 
   return (
@@ -176,6 +184,24 @@ export default function BasicTable(props) {
         >
           Guardar
         </Button>
+        {saved ? (
+          <CsvDownload style={{ //pass other props, like styles
+            borderRadius:"4px",
+            display: "flex",
+            width: "auto",
+            fontSize:"0.875rem",
+            padding:"6px 16px",
+            lineHeight: "1.75",
+            boxShadow:"none",
+            }}
+            data={[docInfo]} filename={docInfo.file_name + '.csv'}>
+            DESCARGAR
+          </CsvDownload>
+        ) : (
+          <Typography color="error">
+            Guarde sus cambios para habilitar la descarga
+          </Typography>
+        )}
         <Button variant="contained" color="primary" component="span"
           onClick={() => {
             changeView('result');
@@ -184,6 +210,8 @@ export default function BasicTable(props) {
           Regresar
         </Button>
       </Grid>
+      
+      
     </div>
   );
 }
