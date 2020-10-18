@@ -43,29 +43,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  const { docInfo, setDocSelected, ind, changeView } = props;
+  // console.log('docInfo:: ', docInfo);
   return (
-    <Card>
-      <CardHeader title="Empresa" />
+    <Card style={{ marginTop: 30, marginBottom: 30 }}>
+      <CardHeader title={docInfo['file_name']} />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
-        </Typography>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        ></Typography>
       </CardContent>
 
       <Grid container direction="row" justify="flex-end" alignItems="center">
         <CardActions disableSpacing>
           <Grid item xs={10}>
-            <Button variant="outlined" color="primary">
+            <Button
+              variant="outlined"
+              color="primary"
+              onClick={() => {
+                setDocSelected(ind);
+                // console.log('ind:: ', ind);
+                changeView('detail');
+              }}
+            >
               Ver Reporte
             </Button>
           </Grid>

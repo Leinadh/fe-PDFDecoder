@@ -5,8 +5,9 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-dropzone-uploader/dist/styles.css';
 import Dropzone from 'react-dropzone-uploader';
 import Grid from '@material-ui/core/Grid';
+import { mock_response_completo, mock_response } from './components/mock';
 
-const MyUploader = () => {
+const MyUploader = (props) => {
   // specify upload params and url for your files
   const getUploadParams = ({ file, meta }) => {
     const body = new FormData();
@@ -20,6 +21,8 @@ const MyUploader = () => {
     };
   };
 
+  const { changeView, setDocsResult } = props;
+
   // called every time a file's `status` changes
   const handleChangeStatus = ({ meta, file }, status) => {
     // console.log(status, meta, file);
@@ -27,10 +30,26 @@ const MyUploader = () => {
 
   // receives array of files that are done uploading when submit button is clicked
   const handleSubmit = (files, allFiles, props) => {
-    console.log(
-      'submition',
-      files.map((f) => JSON.parse(f.xhr.response))
+    // console.log(
+    //   'submition',
+    //   files.map((f) => JSON.parse(f.xhr.response))
+    // );
+    const apiResponse = files.map((f) => JSON.parse(f.xhr.response));
+    // setDocsResult(apiResponse);
+
+    const completeResponse = (response) => {
+      //mock_response_completo;
+    };
+
+    setDocsResult(
+      apiResponse.map((e) => {
+        const file_name = e.responses_docs[0].file_name;
+        const mock = { ...mock_response, file_name };
+
+        return mock;
+      })
     );
+    changeView('result');
 
     allFiles.forEach((f) => f.remove());
   };
@@ -47,7 +66,8 @@ const MyUploader = () => {
   );
 };
 
-function App() {
+function App(props) {
+  const { changeView, setDocsResult } = props;
   return (
     <div>
       <div class="container">
@@ -55,7 +75,7 @@ function App() {
           <h1>Cargue los archivos</h1>
           <br></br>
           <br></br>
-          <MyUploader />
+          <MyUploader changeView={changeView} setDocsResult={setDocsResult} />
         </Grid>
       </div>
     </div>
