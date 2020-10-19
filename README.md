@@ -12,15 +12,15 @@ Pasos:
 3. Luego de validar la informacion, se pueden descargar los resultados.
 
    Paso 1<br/>
-   <img src="images/front1.jpeg" width="500" />
+   <img src="images/front1.png" width="500" />
 
    Paso 2<br/>
-   <img src="images/front3.jpeg" width="500" />
-   <img src="images/front4.jpeg" width="500" />
-   <img src="images/front5.jpeg" width="500" />
-   <img src="images/front10.jpeg" width="500" />
+   <img src="images/front3.png" width="500" />
+   <img src="images/front4.png" width="500" />
+   <img src="images/front5.png" width="500" />
+   <img src="images/front10.png" width="500" />
    
    Paso 3<br/>
-   <img src="images/front11.jpeg" width="500" />
+   <img src="images/front11.png" width="500" />
 
    
