@@ -8,7 +8,7 @@ Esta aplicacion consiste en detectar variables financieras como son activos, pas
 
 
    Paso 1<br/>
-   1. Cargar documentos de Balance General y/o Estado de Perdidas y Ganancias a la aplicacion web.<br/>
+   1. Cargar documentos en formato pdf de Balance General y/o Estado de Perdidas y Ganancias a la aplicacion web.<br/>
    <img src="images/front1.png" width="500" />
 
    Paso 2<br/>
